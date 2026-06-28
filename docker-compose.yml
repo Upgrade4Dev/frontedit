@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  # Define o nome do nosso serviço
+  meu-editor:
+    # Dá um nome amigável para o container rodando
+    container_name: editor_frontend_container
+    # Informa ao Docker para usar o Dockerfile que criamos acima
+    build: .
+    # Mapeia as portas: acessaremos no navegador digitando localhost:8080
+    ports:
+      - "8080:80"
+    # Sincroniza a pasta 'src' do seu computador com a pasta do servidor.
+    # Assim, qualquer alteração que você fizer no código atualiza na hora!
+    volumes:
+      - ./src:/usr/share/nginx/html

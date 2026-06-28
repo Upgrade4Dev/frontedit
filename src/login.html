@@ -1,0 +1,73 @@
+<!-- Início do container principal do Bootstrap com margem no topo (mt-5) -->
+<div class='container mt-5'>
+
+  <!-- Bloco da Logomarca com o Texto Alinhado -->
+  <div class="d-flex align-items-center gap-4">
+    <!-- Bloco da Logomarca com o Texto Alinhado e Responsivo -->
+    <!-- Coluna que ocupa metade da tela (6 de 12 colunas) e tem margem embaixo (mb-3) -->
+    <div style="max-width: 80px; min-width: 50px; width: 100%;">
+    <!-- A classe 'img-fluid' faz a imagem ser 100% responsiva e se adaptar ao espaço -->
+      <img src="img/upgrade4dev.png" alt="Upgrade4Dev" class="img-fluid">
+    </div>
+
+    <div>
+      <h2 class="mb-0 fw-bold text-primary fs-3 fs-sm-2">Upgrade4Dev</h2>
+      <p class="mb-0 text-muted fs-6">Desenvolvimento de Sistemas.</p>
+      <small class="text-secondary">1987 a 2026 - Agora com vc!</small>
+    </div>
+  </div>  
+
+  <!-- Linha horizontal para separar o cabeçalho do formulário -->
+  <hr>
+
+  <!-- Título da página: Login -->
+  <h2>Login</h2>
+
+  <!-- Início do formulário de login -->
+  <form>
+
+    <!-- Cria uma linha no Bootstrap para organizar os campos lado a lado em telas grandes -->
+    <div class='form-row'>
+       <!-- Coluna que ocupa metade da tela (6 de 12 colunas) e tem margem embaixo (mb-3) -->
+       <div class='col-md-6 mb-3'>
+         <!-- Rótulo do campo. O 'for' se conecta ao 'id' do input para acessibilidade -->
+         <label for='email'>E-mail:</label>
+         <!-- Campo de texto do tipo email, com estilo do Bootstrap (form-control) e obrigatório (required) -->
+         <input type='email' class='form-control' id='email' aria-describedby='emailHelp' placeholder='Digite seu e-mail' required>
+       </div>
+
+      <!-- Segunda coluna para a senha, ocupando a outra metade da tela -->
+      <div class='col-md-6 mb-3'>
+        <!-- Rótulo conectado ao campo de senha -->
+        <label for='senha'>Senha:</label>
+        <!-- Campo do tipo password (esconde os caracteres digitados) -->
+        <input type='password' class='form-control' id='senha' placeholder='Digite sua senha' required>
+      </div>
+    <!-- Fim da linha de campos (form-row) -->
+    </div>
+
+    <!-- Botão de envio do formulário, estilizado em azul (btn-primary) -->
+    <button type='submit' class='btn btn-primary'>Entrar</button>
+    <!-- Botão de teste que está desativado -->
+    <button class='btn btn-success' id='btn-cadastrar'>Cadastrar</button>
+
+    
+  <!-- Fim do formulário -->
+</form>
+
+  
+  <!-- Rodapé da página centralizado usando a classe moderna do Bootstrap (text-center) e margem no topo (mt-4) -->
+  <div class='text-center mt-4'>
+    <!-- Linha separadora superior -->
+    <hr>
+    <!-- Texto explicativo simples -->
+    Aqui você pode testar seu código em tempo real. 
+    <!-- Texto em negrito (strong) para dar destaque à frase -->
+    <strong>Vamos juntos, porém distantes.</strong> 
+    <!-- Linha separadora inferior -->
+    <hr>
+  <!-- Fim do rodapé -->
+  </div>
+
+<!-- Fim do container principal -->
+</div>

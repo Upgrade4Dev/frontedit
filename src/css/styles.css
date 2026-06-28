@@ -1,0 +1,205 @@
+/* ==========================================================================
+   ESTILOS GERAIS DO APLICATIVO E LAYOUT BASE
+   ========================================================================== */
+
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.navbar-custom {
+    background-color: #2d2d2d;
+    padding: 10px 20px;
+    border-bottom: 1px solid #3d3d3d;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - 60px);
+}
+
+#painel-esquerdo {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.nav-link {
+    color: #aaaaaa;
+    cursor: pointer;
+    border-radius: 0 !important;
+}
+
+.nav-link.active {
+    color: #0dcaf0 !important;
+    background-color: #1e1e1e !important;
+    border-bottom: 2px solid #0dcaf0 !important;
+}
+
+.preview-side {
+    background-color: #ffffff;
+    height: 100%;
+}
+
+.preview-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ==========================================================================
+   CORREÇÃO DO EDITOR BASEADO EM TEXTAREA (SEM DUPLICIDADE DE CAMADAS)
+   ========================================================================== */
+
+/* Caixa mãe que segura os editores do lado esquerdo */
+.editor-content-box {
+    position: relative;
+    flex-grow: 1;
+    height: 100%;
+    background-color: #1e1e1e;
+}
+
+/* 
+   A SOLUÇÃO REAL PARA A TEXTAREA:
+   Para o cursor não travar de forma alguma e ir até a última letra digitada,
+   remonitoramos o comportamento de quebra e rolagem diretamente na Textarea.
+*/
+.code-textarea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    
+    margin: 0 !important;
+    padding: 15px !important;
+    border: none !important;
+    outline: none !important;
+    
+    /* Configura uma cor padrão legível para desenvolvimento escuro */
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    caret-color: #0dcaf0 !important; /* Cursor em azul ciano de destaque */
+    
+    /* Tipografia idêntica e fixa */
+    font-family: 'Consolas', 'Courier New', monospace !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    
+    /* 
+       ESTES ATRIBUTOS FORÇAM A BARRA DE ROLAGEM HORIZONTAL NATIVA NA TEXTAREA.
+       O texto nunca vai quebrar automaticamente nas bordas e o cursor vai acompanhar
+       a digitação até o final real da linha, sem bloqueios laterais!
+    */
+    white-space: pre !important;
+    overflow: auto !important;
+    word-wrap: normal !important;
+    box-sizing: border-box !important;
+}
+
+/* ==========================================================================
+   BARRA DIVISÓRIA CENTRAL E COMPONENTES DE INTERAÇÃO
+   ========================================================================== */
+
+.resizer-bar {
+    width: 8px;                    
+    background-color: #2d2d2d;     
+    cursor: col-resize;            
+    position: relative;
+    transition: background-color 0.2s;
+    user-select: none;             
+}
+
+.resizer-bar:hover, .resizer-bar:active {
+    background-color: #0dcaf0;     
+}
+
+/* ==========================================================================
+   CUSTOMIZAÇÃO DO MODAL DE CÓDIGO ESTRUTURADO
+   ========================================================================== */
+
+#codigoCompletoModal .modal-dialog {
+    width: 90% !important;      
+    max-width: 90% !important;  
+    height: 90% !important;     
+    margin: 5vh auto !important; 
+}
+
+#codigoCompletoModal .modal-content {
+    height: 100% !important;    
+    display: flex;
+    flex-direction: column;     
+}
+
+#codigoCompletoModal .modal-body {
+    flex: 1;                    
+    overflow-y: auto;           
+    background-color: #121212;  
+}
+
+
+
+/* CONTAINER DO EDITOR: Alinha a barra de números e a textarea lado a lado */
+.editor-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* BARRA LATERAL DOS NÚMEROS: Estilo idêntico ao VS Code */
+.line-numbers-sidebar {
+    width: 45px; /* Largura fixa para a barra de números */
+    height: 100%;
+    padding: 15px 0; /* Alinha o topo com o padding da textarea */
+    text-align: center;
+    color: #858585; /* Cor cinza para os números */
+    background-color: #1e1e1e; /* Fundo escuro do editor */
+    border-right: 1px solid #333333; /* Linha fina divisória */
+    font-family: 'Consolas', 'Courier New', monospace !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    user-select: none; /* Impede o usuário de selecionar os números com o mouse */
+}
+
+/* AJUSTE NA TEXTAREA: Agora ela começa logo após a barra de números */
+.code-textarea {
+    position: relative; /* Mudado de absolute para relative para respeitar o flexbox */
+    flex-grow: 1; /* Faz a textarea ocupar todo o resto do espaço da tela */
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 15px !important;
+    border: none !important;
+    outline: none !important;
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    caret-color: #0dcaf0 !important;
+    font-family: 'Consolas', 'Courier New', monospace !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    white-space: pre !important;
+    overflow: auto !important;
+    word-wrap: normal !important;
+    box-sizing: border-box !important;
+}
+
+
+/* Estilo personalizado para o botão de reset do editor */
+.btn-danger {
+    font-weight: 500 !important;
+    letter-spacing: 0.5px;
+    border-radius: 4px !important;
+    transition: background-color 0.2s ease;
+}
